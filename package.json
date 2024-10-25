@@ -1,8 +1,11 @@
 {
   "name": "nr-co2meter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node-RED integration for tracking CO2 emissions based on electricity meter readings using the CO2 Meter API.",
   "main": "lib.js",
+  "engines": {
+                   "node": ">=18.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +25,8 @@
   "node-red": {
     "nodes": {
       "co2meter": "co2meter.js"
-    }
+    },
+    "version": ">=4.0.0"
   },
   "author": "STROMDAO GmbH <dev@stromdao.com>",
   "license": "Apache-2.0",
