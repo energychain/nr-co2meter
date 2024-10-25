@@ -1,0 +1,90 @@
+[
+    {
+        "id": "1e4bd5102cf83ae2",
+        "type": "tab",
+        "label": "CO2 Meter Demo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ffeb1b2bcbab885",
+        "type": "inject",
+        "z": "1e4bd5102cf83ae2",
+        "name": "Uses Time as Fake Electricity Meter",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "f681258dd3cee6de"
+            ]
+        ]
+    },
+    {
+        "id": "f681258dd3cee6de",
+        "type": "co2meter",
+        "z": "1e4bd5102cf83ae2",
+        "name": "CO2Meter",
+        "zip": "69256",        
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "22c6c4cb1624f347"
+            ],
+            [
+                "8b03c04e68bac609"
+            ]
+        ]
+    },
+    {
+        "id": "22c6c4cb1624f347",
+        "type": "debug",
+        "z": "1e4bd5102cf83ae2",
+        "name": "Meter Reading",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8b03c04e68bac609",
+        "type": "debug",
+        "z": "1e4bd5102cf83ae2",
+        "name": "Debug API Output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 220,
+        "wires": []
+    }
+]

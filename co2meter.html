@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('co2meter',{
+        category: 'corrently',
+        color: '#e6b41e',
+        defaults: {
+            name: {value:""},
+            zip: {value:"10117",required:true},
+            personaltoken: {value:""}
+        },
+        inputs: 1,
+        outputs: 2,
+        icon: "white-globe.svg",
+        label: function() {
+            return this.name||"co2meter";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="co2meter">
+    <div class="form-row">
+        <label for="node-input-zip"><i class="fa fa-tag"></i> Postal Code (Germany)</label>
+        <input type="text" id="node-input-zip" placeholder="(Postleitzahl)">
+    </div>
+    <div class="form-row">
+        <label for="node-input-personaltoken"><i class="fa fa-tag"></i> API Token (<a href="https://console.corrently.io/?utm_source=nodered" target="_blank">Corrently Dev Console</a>)</label>
+        <input type="text" id="node-input-personaltoken" placeholder="Personal API Token">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="co2meter">
+    <p>Expects a electricity meter reading in Watt-hours (Wh) as input and will return a co2 reading in gramms as output. Uses <a href="https://console.corrently.io/co2meter.html" target="_blank">CO2 Meter API.</a></p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">number</span>
+        </dt>
+        <dd> Reading of an electricity meter in Watt-hours (Wh)</dd>
+    </dl>
+    <h3>Output 1</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">number</span>
+        </dt>
+        <dd>Gramms CO2eq collected by this meter.</dd>
+    </dl>
+    <h3>Output 2</h3>
+    <dl class="message-properties">
+        <dt>payload
+            <span class="property-type">Object</span>
+        </dt>
+        <dd>Full debug output as given by CO2 metering API</dd>
+    </dl>
+</script>
